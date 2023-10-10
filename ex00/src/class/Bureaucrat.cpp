@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 12:12:32 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/10 18:43:34 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/10 19:43:28 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ std::ostream & operator<<(std::ostream & lhs, Bureaucrat const & rhs)
 
 void	Bureaucrat::GradeTooLowException()
 {
-	std::cerr << "Grade too low : lower is 150.\n";
+	std::cerr << "Grade too low, lower is 150.\n";
 }
 
 void	Bureaucrat::GradeTooHighException()
 {
-	std::cerr << "Grade too high : higher is 1.\n";
+	std::cerr << "Grade too high, higher is 1.\n";
 	
 }
 
@@ -74,9 +74,9 @@ void	Bureaucrat::setGrade(int newGrade)
 			throw (newGrade);
 		}
 	}
-	catch (int num)
+	catch (int newGrade)
 	{	
-		std::cerr << num;
+		std::cerr << newGrade << " : ";
 		if (newGrade < 1)
 			Bureaucrat::GradeTooHighException();
 		else if (newGrade > 150)
