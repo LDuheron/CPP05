@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:57:33 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/11 18:19:09 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/14 15:48:28 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Form::Form() : _isSigned(_defaultIsSigned), _name(_defaultName), _requiredGradeT
 	std::cout << "Form default constructor called.\n";
 }
 
-Form::Form(std::string name, unsigned int const gradeToExecute, unsigned int const gradeToSign)
+Form::Form(std::string name, unsigned int gradeToExecute, unsigned int gradeToSign)
 {
 	this->_name = name;
 	this->_isSigned = NOT_SIGNED;

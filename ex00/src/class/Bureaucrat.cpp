@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 12:12:32 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/10 19:43:28 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/14 18:00:10 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ unsigned int Bureaucrat::_defaultGrade(150);
 Bureaucrat::Bureaucrat() : _name(_defaultName), _grade(_defaultGrade)
 {
 	std::cout << "Bureaucrat default constructor called.\n";
+}
+
+Bureaucrat::Bureaucrat(std::string const name, int grade)
+{
+	this->_name = name;
+	setGrade(grade);
+	std::cout << "Bureaucrat parameter constructor called.\n";
 }
 
 // Destructor ------------------------------------------------------------------
@@ -52,34 +59,12 @@ std::ostream & operator<<(std::ostream & lhs, Bureaucrat const & rhs)
 
 // Functions -------------------------------------------------------------------
 
-void	Bureaucrat::GradeTooLowException()
-{
-	std::cerr << "Grade too low, lower is 150.\n";
-}
-
-void	Bureaucrat::GradeTooHighException()
-{
-	std::cerr << "Grade too high, higher is 1.\n";
-	
-}
-
 void	Bureaucrat::setGrade(int newGrade)
 {
-	try
-	{
-		if (newGrade >= 1 && newGrade <= 150)
-			this->_grade = newGrade;
-		else 
-		{
-			throw (newGrade);
-		}
-	}
-	catch (int newGrade)
-	{	
-		std::cerr << newGrade << " : ";
-		if (newGrade < 1)
-			Bureaucrat::GradeTooHighException();
-		else if (newGrade > 150)
-			Bureaucrat::GradeTooLowException();
-	}
+	if (newGrade >= 1 && newGrade <= 150)
+		this->_grade = newGrade;
+	else if (newGrade < 1)
+		throw (GradeTooHighException());
+	else if (newGrade > 150)
+		throw (GradeTooLowException());
 }
