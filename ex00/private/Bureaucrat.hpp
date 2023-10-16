@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 22:12:15 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/14 17:54:10 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:36:22 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <limits.h>
 
 #define SUCCESS 0
 #define ERROR 1
@@ -32,10 +33,13 @@ class Bureaucrat
 		Bureaucrat(std::string name, int grade);
 		~Bureaucrat();
 
-		std::string const 	&getName(void) const;
-		unsigned int const 	&getGrade(void) const;
-		void				setGrade(int newGrade);
+		std::string const 		&getName(void) const;
+		unsigned int const		&getGrade(void) const;
+		void					setGrade(int newGrade);
 
+		void					decrement_grade(int newGrade);
+		void					increment_grade(int newGrade);
+		
 		class GradeTooLowException : public std::exception 
 		{
 			public:

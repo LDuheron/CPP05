@@ -6,39 +6,57 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:51:32 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/14 17:59:36 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:36:12 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include <stdlib.h> 
 
-void	create_a_bureaucrat(char *name, int grade)
+void	create_a_bureaucrat(std::string name, int grade)
 {
-	Bureaucrat Gurvan(name, grade);
+	Bureaucrat bureaucrat(name, grade);
 
-	std ::cout << Gurvan;
-	Gurvan.setGrade(27);
-	std ::cout << Gurvan;
-	Gurvan.setGrade(-2);
-	std ::cout << Gurvan;
-	Gurvan.setGrade(158);
-	std ::cout << Gurvan;
+	std ::cout << bureaucrat;
+
+	// bureaucrat.setGrade(27);
+	// std ::cout << bureaucrat;
+	// bureaucrat.setGrade(-2);
+	// std ::cout << bureaucrat;
+	// bureaucrat.setGrade(158);
+	// std ::cout << bureaucrat;
+	// bureaucrat.setGrade(1);
+	// std ::cout << bureaucrat;
+	// bureaucrat.setGrade(150);
+	// std ::cout << bureaucrat;
+
+	// bureaucrat.increment_grade(-1);
+	// std ::cout << bureaucrat;
+	// bureaucrat.increment_grade(1);
+	// std ::cout << bureaucrat;
+	// bureaucrat.increment_grade(155);
+	// std ::cout << bureaucrat;
+
+	bureaucrat.decrement_grade(-1);
+	std ::cout << bureaucrat;
+	bureaucrat.decrement_grade(1);
+	std ::cout << bureaucrat;
+	bureaucrat.decrement_grade(155);
+	std ::cout << bureaucrat;
+
 }
 
 int	main(int argc, char **argv)
 {
-	std:string   tmp;
-
-	tmp = argv[1];
-	if (argc != 2)
+	if (argc != 3)
 	{
 		std::cerr << "Error: usage is ./bureaucrat <name> <grade>.\n";
 		return (ERROR);
 	}
+
 	try
 	{
-		create_a_bureaucrat(tmp, atoi(argv[2]));
+		create_a_bureaucrat(argv[1], atoi(argv[2]));
 	}
 	catch (std::exception)
 	{
