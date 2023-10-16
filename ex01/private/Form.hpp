@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:24 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/11 18:15:32 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/16 12:14:21 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,31 +24,45 @@ class Form
 	private:
 		static bool					_defaultIsSigned;
 		static std::string	const 	_defaultName;
-		static unsigned int const	_defaultRequiredGradeToExecute;
-		static unsigned int const	_defaultRequiredGradeToSign;
+		static unsigned int const	_defaultRequiredGradeToBeExecuted;
+		static unsigned int const	_defaultRequiredGradeToBeSigned;
 
 		bool						_isSigned;
 		std::string	const 			_name;
-		unsigned int const			_requiredGradeToExecute;
-		unsigned int const			_requiredGradeToSign;
+		unsigned int const			_requiredGradeToBeExecuted;
+		unsigned int const			_requiredGradeToBeSigned;
 
 	public:
 		Form();
-		Form(std::string name, unsigned int const requiredGradeToExecute, unsigned int const requiredGradeToSign);
+		Form(std::string name, unsigned int const requiredGradeToBeExecuted, unsigned int const requiredGradeToBeSigned);
 		~Form();
 
 		bool const & 				getIsSigned(void) const;
 		std::string const & 		getName(void) const;
-		unsigned int const & 		getRequiredGradeToExecute(void) const;
-		unsigned int const & 		getRequiredGradeToSign(void) const;
-
-		// void	GradeTooHighException();
-		// void	GradeTooLowException();
+		unsigned int const & 		getRequiredGradeToBeExecuted(void) const;
+		unsigned int const & 		getRequiredGradeToBeSigned(void) const;
 
 		// void	setGradeToExecute(int newGrade);
 		// void	setGradeToSign(int newGrade);
 		
-		
+		// beSigned function that takes a bureaucrat in parameter 
+
+		class GradeTooLowException : public std::exception 
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Grade too low, lower is 150.\n");
+				}
+		};
+		class GradeTooHighException : public std::exception 
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Grade too high, higher is 1.\n");
+				}
+		};
 };
 
 std::ostream & operator<<(std::ostream & lhs, Form const & rhs);
