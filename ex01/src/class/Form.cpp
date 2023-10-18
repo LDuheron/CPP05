@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:57:33 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/16 12:19:49 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/18 19:23:23 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ Form::Form(std::string name, unsigned int gradeToExecute, unsigned int gradeToSi
 		throw (GradeTooHighException());
 	if (gradeToExecute > 150 || gradeToSign > 150)
 		throw (GradeTooLowException());
-
 }
+
 // Destructor ------------------------------------------------------------------
 Form::~Form()
 {
@@ -79,56 +79,14 @@ std::ostream & operator<<(std::ostream & lhs, Form const & rhs)
 }
 
 // Functions -------------------------------------------------------------------
-// void	Form::GradeTooLowException()
-// {
-// 	std::cerr << "Grade too low, lower is 150.\n";
-// }
 
-// void	Form::GradeTooHighException()
-// {
-// 	std::cerr << "Grade too high, higher is 1.\n";
-	
-// }
-
-// void	Form::setGradeToSign(int newGrade)
-// {
-// 	try
-// 	{
-// 		if (newGrade >= 1 && newGrade <= 150)
-// 			this->_requiredGradeToBeSigned = newGrade;
-// 		else 
-// 		{
-// 			throw (newGrade);
-// 		}
-// 	}
-// 	catch (int newGrade)
-// 	{	
-// 		std::cerr << newGrade << " : ";
-// 		if (newGrade < 1)
-// 			Form::GradeTooHighException();
-// 		else if (newGrade > 150)
-// 			Form::GradeTooLowException();
-// 	}
-// }
-
-// void	Form::setGradeToExecute(int newGrade)
-// {
-// 	try
-// 	{
-// 		if (newGrade >= 1 && newGrade <= 150)
-// 			this->_requiredGradeToBeExecuted = newGrade;
-// 		else 
-// 		{
-// 			throw (newGrade);
-// 		}
-// 	}
-// 	catch (int newGrade)
-// 	{	
-// 		std::cerr << newGrade << " : ";
-// 		if (newGrade < 1)
-// 			Form::GradeTooHighException();
-// 		else if (newGrade > 150)
-// 			Form::GradeTooLowException();
-// 	}
-// }
-
+void	Form::beSigned(Bureaucrat bureaucrat)
+{
+	if (bureaucrat.getGrade() <= this->_requiredGradeToBeSigned)
+	{
+		this->_isSigned = SIGNED;
+		std::cout << "Form " << this->_name << " was signed by " << bureaucrat.getName() << ".\n";	
+	}
+	else
+		std::cerr << "Bureaucrat " << bureaucrat.getName() << " can't sign form " << this->_name << "because is grade is too low.\n";
+}

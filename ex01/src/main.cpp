@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:51:32 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/16 12:21:37 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/18 19:22:44 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,18 @@
 
 void	create_a_form(std::string name, int requiredGradeToBeExecuted, int requiredGradeToBeSigned)
 {
+	Bureaucrat Gurvan;
 	Form	chess_form;
 
 	std ::cout << chess_form;
+	chess_form.beSigned(Gurvan);
+	std::cout << "\n\n\n";
 
 	Form	random_form(name, requiredGradeToBeExecuted, requiredGradeToBeSigned);
 
 	std ::cout << random_form;
+	chess_form.beSigned(Gurvan);
+
 }
 
 int	main(int argc, char **argv)
