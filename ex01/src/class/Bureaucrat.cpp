@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 12:12:32 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/16 12:20:28 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/19 14:46:13 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,16 @@ void	Bureaucrat::decrement_grade(int newGrade)
 	if ((int)this->_grade + newGrade > 150)
 		throw (GradeTooLowException());
 	this->_grade += newGrade;
+}
+
+void	Bureaucrat::signForm(Form form)
+{
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << "Bureaucrat " << this->_name << " couldn't sign " << form.getName() << " because " << e.what();
+	}
 }

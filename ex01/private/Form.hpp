@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:24 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/18 19:16:02 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/19 14:45:14 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 #define NOT_SIGNED 0
 #define SIGNED 1
+
+class Bureaucrat;
 
 class Form
 {
@@ -50,7 +52,7 @@ class Form
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Grade too low, lower is 150.\n");
+					return ("grade too low.\n");
 				}
 		};
 		class GradeTooHighException : public std::exception 
@@ -58,7 +60,15 @@ class Form
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Grade too high, higher is 1.\n");
+					return ("grade too high.\n");
+				}
+		};
+		class AlreadySignedException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("form has already been signed.\n");
 				}
 		};
 };

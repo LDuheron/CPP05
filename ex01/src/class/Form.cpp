@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:57:33 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/18 19:23:23 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/19 14:49:45 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Form::Form() :
 	_requiredGradeToBeExecuted(_defaultRequiredGradeToBeExecuted),
 	_requiredGradeToBeSigned(_defaultRequiredGradeToBeSigned)
 {
-	std::cout << "Form " << this->_name << " default constructor called.\n";
+	std::cout << "Form " << this->_name << " default constructor called.\n\n";
 }
 
 Form::Form(std::string name, unsigned int gradeToExecute, unsigned int gradeToSign) :
@@ -31,7 +31,7 @@ Form::Form(std::string name, unsigned int gradeToExecute, unsigned int gradeToSi
 	_requiredGradeToBeExecuted(gradeToExecute),
 	_requiredGradeToBeSigned(gradeToSign)
 {
-	std::cout << "Form " << this->_name << " constructor with param called.\n";
+	std::cout << "Form " << this->_name << " constructor with param called.\n\n";
 	if (this->_requiredGradeToBeExecuted < 1 || this->_requiredGradeToBeSigned < 1)
 		throw (GradeTooHighException());
 	if (gradeToExecute > 150 || gradeToSign > 150)
@@ -41,7 +41,7 @@ Form::Form(std::string name, unsigned int gradeToExecute, unsigned int gradeToSi
 // Destructor ------------------------------------------------------------------
 Form::~Form()
 {
-	std::cout << "Form " << this->_name << " destructor called.\n";
+	std::cout << "Form " << this->_name << " destructor called.\n\n";
 }
 
 // Accessors -------------------------------------------------------------------
@@ -70,7 +70,7 @@ unsigned int const & Form::getRequiredGradeToBeSigned(void) const
 
 std::ostream & operator<<(std::ostream & lhs, Form const & rhs)
 {
-	lhs << rhs.getName() << ", requires grade " << rhs.getRequiredGradeToBeExecuted() << " to be executed, "
+	lhs << rhs.getName() << " requires grade " << rhs.getRequiredGradeToBeExecuted() << " to be executed, "
 	<< rhs.getRequiredGradeToBeSigned() << " to be signed" << " and is ";
 	if (rhs.getIsSigned() == NOT_SIGNED)
 		lhs << "not ";
@@ -82,11 +82,13 @@ std::ostream & operator<<(std::ostream & lhs, Form const & rhs)
 
 void	Form::beSigned(Bureaucrat bureaucrat)
 {
-	if (bureaucrat.getGrade() <= this->_requiredGradeToBeSigned)
+	if (this->_isSigned == NOT_SIGNED && bureaucrat.getGrade() <= this->_requiredGradeToBeSigned)
 	{
 		this->_isSigned = SIGNED;
-		std::cout << "Form " << this->_name << " was signed by " << bureaucrat.getName() << ".\n";	
+		std::cout << bureaucrat.getName() << " signed " << this->_name << ".\n";
 	}
+	else if (this->_isSigned == SIGNED)
+		throw (AlreadySignedException());
 	else
-		std::cerr << "Bureaucrat " << bureaucrat.getName() << " can't sign form " << this->_name << "because is grade is too low.\n";
+		throw(GradeTooLowException());
 }

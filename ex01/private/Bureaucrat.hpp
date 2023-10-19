@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 22:12:15 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/16 11:36:22 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/19 14:45:23 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <iostream>
 # include <string>
 # include <limits.h>
+# include "Form.hpp"
+
+class Form;
 
 #define SUCCESS 0
 #define ERROR 1
@@ -39,13 +42,15 @@ class Bureaucrat
 
 		void					decrement_grade(int newGrade);
 		void					increment_grade(int newGrade);
-		
+
+		void					signForm(Form form);
+
 		class GradeTooLowException : public std::exception 
 		{
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Grade too low, lower is 150.\n");
+					return ("grade too low.\n");
 				}
 		};
 		class GradeTooHighException : public std::exception 
@@ -53,7 +58,15 @@ class Bureaucrat
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Grade too high, higher is 1.\n");
+					return ("grade too high.\n");
+				}
+		};
+		class AlreadySignedException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("form has already been signed.\n");
 				}
 		};
 };
