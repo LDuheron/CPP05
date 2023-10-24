@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:24 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/20 18:42:10 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/24 11:45:31 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,12 @@ class AForm
 		static unsigned int const	_defaultRequiredGradeToBeExecuted;
 		static unsigned int const	_defaultRequiredGradeToBeSigned;
 
+	protected:
+
 		bool						_isSigned;
 		std::string	const 			_name;
 		unsigned int const			_requiredGradeToBeExecuted;
 		unsigned int const			_requiredGradeToBeSigned;
-
-	public:
-		AForm();
-		AForm(std::string name, unsigned int const requiredGradeToBeExecuted, unsigned int const requiredGradeToBeSigned);
-		virtual ~AForm();
-
-		bool const & 				getIsSigned(void) const;
-		std::string const & 		getName(void) const;
-		unsigned int const & 		getRequiredGradeToBeExecuted(void) const;
-		unsigned int const & 		getRequiredGradeToBeSigned(void) const;
-
-		void						beSigned(Bureaucrat bureaucrat);
-		void						beExecuted(Bureaucrat bureaucrat);
 
 		class GradeTooLowException : public std::exception 
 		{
@@ -72,6 +61,22 @@ class AForm
 					return ("form has already been signed.\n");
 				}
 		};
+
+		AForm();
+		AForm(AForm const & src);
+		AForm(std::string name, unsigned int const requiredGradeToBeExecuted, unsigned int const requiredGradeToBeSigned);
+
+	public:
+
+		virtual ~AForm();
+
+		bool const & 				getIsSigned(void) const;
+		std::string const & 		getName(void) const;
+		unsigned int const & 		getRequiredGradeToBeExecuted(void) const;
+		unsigned int const & 		getRequiredGradeToBeSigned(void) const;
+
+		virtual void				beSigned(Bureaucrat const &bureaucrat) = 0;
+		virtual void				execute(Bureaucrat const &bureaucrat) const = 0;
 };
 
 std::ostream & operator<<(std::ostream & lhs, AForm const & rhs);

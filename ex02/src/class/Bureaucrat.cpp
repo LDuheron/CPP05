@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 12:12:32 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/20 18:40:24 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/24 11:41:27 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void	Bureaucrat::executeForm(AForm const & form)
 {
 	try
 	{
-		form.beExecuted(*this);
+		form.execute(*this);
 	}
 	catch (std::exception& e)
 	{

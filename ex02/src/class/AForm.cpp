@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:57:33 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/20 18:41:29 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/24 11:39:34 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ AForm::AForm() :
 	_requiredGradeToBeSigned(_defaultRequiredGradeToBeSigned)
 {
 	std::cout << "Form " << this->_name << " default constructor called.\n\n";
+}
+
+AForm::AForm(AForm const & src) : _isSigned(src._isSigned), _name(src._name), _requiredGradeToBeExecuted(src._requiredGradeToBeExecuted), _requiredGradeToBeSigned(src._requiredGradeToBeSigned)
+{
+	std::cout << "Bureaucrat " << this->_name << " copy constructor called.\n";
 }
 
 AForm::AForm(std::string name, unsigned int gradeToExecute, unsigned int gradeToSign) :
@@ -80,7 +85,7 @@ std::ostream & operator<<(std::ostream & lhs, AForm const & rhs)
 
 // Functions -------------------------------------------------------------------
 
-void	AForm::beSigned(Bureaucrat bureaucrat)
+void	AForm::beSigned(Bureaucrat const &bureaucrat)
 {
 	if (this->_isSigned == NOT_SIGNED && bureaucrat.getGrade() <= this->_requiredGradeToBeSigned)
 	{
@@ -93,7 +98,7 @@ void	AForm::beSigned(Bureaucrat bureaucrat)
 		throw(GradeTooLowException());
 }
 
-void	AForm::beExecuted(Bureaucrat bureaucrat)
+void	AForm::execute(Bureaucrat const &bureaucrat) const
 {
 	if (bureaucrat.getGrade() <= this->_requiredGradeToBeExecuted)
 	{
