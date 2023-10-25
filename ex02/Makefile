@@ -25,10 +25,9 @@ PRV_DIR		= 	private
 SRC			=	main.cpp							\
 				class/Bureaucrat.cpp				\
 				class/AForm.cpp						\
-				class/PresidentialPardonForm.cpp	\
+				class/RobotomyRequestForm.cpp		\
 				class/ShrubberyCreationForm.cpp		\
-				# class/RobotomyRequestForm.cpp
-				
+				class/PresidentialPardonForm.cpp	\
 
 ######################################
 #            OBJECT FILES            #
