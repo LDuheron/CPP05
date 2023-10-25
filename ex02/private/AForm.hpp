@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:24 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/24 11:45:31 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/25 14:44:43 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ class AForm
 		unsigned int const & 		getRequiredGradeToBeSigned(void) const;
 
 		virtual void				beSigned(Bureaucrat const &bureaucrat) = 0;
-		virtual void				execute(Bureaucrat const &bureaucrat) const = 0;
+		virtual void				execute(Bureaucrat const &executor) const = 0;
 };
 
 std::ostream & operator<<(std::ostream & lhs, AForm const & rhs);

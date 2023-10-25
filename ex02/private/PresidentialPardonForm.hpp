@@ -15,8 +15,8 @@
 
 #include "AForm.hpp"
 
-class AForm;
-class Bureaucrat;
+// class AForm;
+// class Bureaucrat;
 
 class PresidentialPardonForm : public AForm
 {
@@ -27,13 +27,16 @@ class PresidentialPardonForm : public AForm
 		static unsigned int const	_defaultRequiredGradeToBeSigned;
 
 		std::string	const 			_target;
-
-	public :
 		PresidentialPardonForm();
 		PresidentialPardonForm(PresidentialPardonForm const & src);
+
+	public :
+
 		PresidentialPardonForm(std::string const target);
 		virtual ~PresidentialPardonForm();
 
+		std::string		getTarget(void) const;
+		
 		virtual void	beSigned(Bureaucrat const &bureaucrat);
 		virtual void	execute(Bureaucrat const &bureaucrat) const;
 };

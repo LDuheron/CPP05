@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:51:32 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/24 11:40:49 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:20:27 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,50 @@
 #include "PresidentialPardonForm.hpp"
 #include <stdlib.h> 
 
-void	create_a_form(std::string name, int requiredGradeToBeExecuted, int requiredGradeToBeSigned)
+void	create_a_president_form(std::string target)
 {
-	(void) name;
-	(void) requiredGradeToBeExecuted;
-	(void) requiredGradeToBeSigned;
-	// Bureaucrat Gurvan;
-	// PresidentialPardonForm	chess_form;
+	Bureaucrat 				Gurvan;
+	Bureaucrat 				Meryem("Meryem", 1);
+	PresidentialPardonForm	form(target);
 
-	// std ::cout << chess_form;
-	// chess_form.beSigned(Gurvan);
-	// std::cout << "\n\n\n";
-	// Gurvan.signForm(chess_form);
+	std ::cout << form;
+	std::cout << "\n";
 
+	try
+	{
+		form.execute(Gurvan);
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << "Bureaucrat " << Gurvan.getName() << " couldn't execute " << form.getName() << " because " << e.what();
+	}
+	try
+	{
+		form.beSigned(Gurvan);
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << "Bureaucrat " << Gurvan.getName() << " couldn't sign " << form.getName() << " because " << e.what();
+	}
+	Gurvan.signForm(form);
+	Gurvan.executeForm(form);
 
+	std::cout << "\n\n";
+	Meryem.signForm(form);
+	Meryem.executeForm(form);
+	Meryem.signForm(form);
 }
 
 int	main(int argc, char **argv)
 {
-	if (argc != 4)
+	if (argc != 2)
 	{
-		std::cerr << "Error: usage is ./bureaucrat <name> <required grade to be executed> <required grade to be signed>.\n";
+		std::cerr << "Error: usage is ./bureaucrat <target>.\n";
 		return (ERROR);
 	}
-
 	try
 	{
-		create_a_form(argv[1], atoi(argv[2]), atoi(argv[3]));
+		create_a_president_form(argv[1]);
 	}
 	catch (std::exception)
 	{

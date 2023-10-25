@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 22:12:15 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/20 18:40:18 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/25 14:33:27 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string>
 # include <limits.h>
 # include "AForm.hpp"
+// # include "PresidentialPardonForm.hpp"
 
 class AForm;
 
@@ -44,7 +45,7 @@ class Bureaucrat
 		void					decrement_grade(int newGrade);
 		void					increment_grade(int newGrade);
 
-		void					signForm(AForm form);
+		void					signForm(AForm & form);
 		void					executeForm(AForm const & form);
 
 		class GradeTooLowException : public std::exception 

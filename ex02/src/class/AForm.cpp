@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:57:33 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/24 11:39:34 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:17:35 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ AForm::AForm() :
 	_requiredGradeToBeExecuted(_defaultRequiredGradeToBeExecuted),
 	_requiredGradeToBeSigned(_defaultRequiredGradeToBeSigned)
 {
-	std::cout << "Form " << this->_name << " default constructor called.\n\n";
+	// std::cout << "Form " << this->_name << " default constructor called.\n\n";
 }
 
 AForm::AForm(AForm const & src) : _isSigned(src._isSigned), _name(src._name), _requiredGradeToBeExecuted(src._requiredGradeToBeExecuted), _requiredGradeToBeSigned(src._requiredGradeToBeSigned)
 {
-	std::cout << "Bureaucrat " << this->_name << " copy constructor called.\n";
+	// std::cout << "Bureaucrat " << this->_name << " copy constructor called.\n";
 }
 
 AForm::AForm(std::string name, unsigned int gradeToExecute, unsigned int gradeToSign) :
@@ -36,7 +36,7 @@ AForm::AForm(std::string name, unsigned int gradeToExecute, unsigned int gradeTo
 	_requiredGradeToBeExecuted(gradeToExecute),
 	_requiredGradeToBeSigned(gradeToSign)
 {
-	std::cout << "Form " << this->_name << " constructor with param called.\n\n";
+	// std::cout << "Form " << this->_name << " constructor with param called.\n\n";
 	if (this->_requiredGradeToBeExecuted < 1 || this->_requiredGradeToBeSigned < 1)
 		throw (GradeTooHighException());
 	if (gradeToExecute > 150 || gradeToSign > 150)
@@ -46,7 +46,7 @@ AForm::AForm(std::string name, unsigned int gradeToExecute, unsigned int gradeTo
 // Destructor ------------------------------------------------------------------
 AForm::~AForm()
 {
-	std::cout << "Form " << this->_name << " destructor called.\n\n";
+	// std::cout << "Form " << this->_name << " destructor called.\n\n";
 }
 
 // Accessors -------------------------------------------------------------------
@@ -98,11 +98,11 @@ void	AForm::beSigned(Bureaucrat const &bureaucrat)
 		throw(GradeTooLowException());
 }
 
-void	AForm::execute(Bureaucrat const &bureaucrat) const
+void	AForm::execute(Bureaucrat const &executor) const
 {
-	if (bureaucrat.getGrade() <= this->_requiredGradeToBeExecuted)
+	if (executor.getGrade() <= this->_requiredGradeToBeExecuted)
 	{
-		std::cout << bureaucrat.getName() << " executed " << this->_name << ".\n";
+		std::cout << executor.getName() << " executed " << this->_name << ".\n";
 	}
 	else
 		throw(GradeTooLowException());
