@@ -15,9 +15,6 @@
 
 #include "AForm.hpp"
 
-// class AForm;
-// class Bureaucrat;
-
 class PresidentialPardonForm : public AForm
 {
 	private :
@@ -38,7 +35,7 @@ class PresidentialPardonForm : public AForm
 		std::string		getTarget(void) const;
 		
 		virtual void	beSigned(Bureaucrat const &bureaucrat);
-		virtual void	execute(Bureaucrat const &bureaucrat) const;
+		virtual void	execute(Bureaucrat const &executor) const;
 };
 
 std::ostream & operator<<(std::ostream & lhs, PresidentialPardonForm const & rhs);

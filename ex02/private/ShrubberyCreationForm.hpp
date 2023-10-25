@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:48:17 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/20 18:14:34 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:23:33 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 #include "AForm.hpp"
 
-class AForm;
+#include <cstring>
+#include <fstream>
+#include <iostream>
+#include <string>
 
 class ShrubberyCreationForm : public AForm
 {
@@ -25,16 +28,30 @@ class ShrubberyCreationForm : public AForm
 		static unsigned int const	_defaultRequiredGradeToBeExecuted;
 		static unsigned int const	_defaultRequiredGradeToBeSigned;
 
-		bool						_isSigned;
-		std::string	const 			_name;
-		unsigned int const			_requiredGradeToBeExecuted;
-		unsigned int const			_requiredGradeToBeSigned;
-
-	public :
+		std::string	const 			_target;
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(ShrubberyCreationForm const & src);
-		~ShrubberyCreationForm();
 
+		class FileFailedException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return (" file creation failed.\n");
+				}
+		};
+
+	public :
+
+		ShrubberyCreationForm(std::string const target);
+		virtual ~ShrubberyCreationForm();
+
+		std::string		getTarget(void) const;
+		
+		virtual void	beSigned(Bureaucrat const &bureaucrat);
+		virtual void	execute(Bureaucrat const &executor) const;
 };
+
+std::ostream & operator<<(std::ostream & lhs, ShrubberyCreationForm const & rhs);
 
 #endif
