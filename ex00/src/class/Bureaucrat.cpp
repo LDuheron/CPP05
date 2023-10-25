@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 12:12:32 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/16 11:38:06 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:03:50 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,17 @@ unsigned int Bureaucrat::_defaultGrade(150);
 
 Bureaucrat::Bureaucrat() : _name(_defaultName), _grade(_defaultGrade)
 {
-	std::cout << "Bureaucrat default constructor called.\n";
+	// std::cout << "Bureaucrat " << this->_name << " default constructor called.\n";
+}
+
+Bureaucrat::Bureaucrat(Bureaucrat const & src) : _name(src._name), _grade(src._grade)
+{
+	// std::cout << "Bureaucrat " << this->_name << " copy constructor called.\n";
 }
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(grade) 
 {
-	std::cout << "Bureaucrat parameter constructor called.\n";
+	// std::cout << "Bureaucrat " << this->_name << " parameter constructor called.\n";
 	if (this->_grade < 1)
 		throw (GradeTooHighException());
 	else if (this->_grade > 150)
@@ -35,7 +40,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat destructor called.\n";
+	// std::cout << "Bureaucrat " << this->_name << " destructor called.\n";
 }
 
 // Accessors -------------------------------------------------------------------

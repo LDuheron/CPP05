@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:51:32 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/16 11:36:12 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:03:25 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	create_a_bureaucrat(std::string name, int grade)
 {
 	Bureaucrat bureaucrat(name, grade);
 
-	std ::cout << bureaucrat;
+	std::cout << bureaucrat;
 
 	// bureaucrat.setGrade(27);
 	// std ::cout << bureaucrat;
@@ -38,11 +38,12 @@ void	create_a_bureaucrat(std::string name, int grade)
 	// std ::cout << bureaucrat;
 
 	bureaucrat.decrement_grade(-1);
-	std ::cout << bureaucrat;
+	std::cout << "\n";
+	std::cout << bureaucrat;
 	bureaucrat.decrement_grade(1);
-	std ::cout << bureaucrat;
+	std::cout << bureaucrat;
 	bureaucrat.decrement_grade(155);
-	std ::cout << bureaucrat;
+	std::cout << bureaucrat;
 
 }
 
@@ -58,10 +59,11 @@ int	main(int argc, char **argv)
 	{
 		create_a_bureaucrat(argv[1], atoi(argv[2]));
 	}
-	catch (std::exception)
+	catch (std::exception & e)
 	{
-		std::cerr << "Error: grade should be in array [1;150].\n";
+		std::cerr << "Error: " << e.what();
 		return (ERROR);
 	}
+
 	return (SUCCESS);
 }

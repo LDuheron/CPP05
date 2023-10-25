@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 22:12:15 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/16 11:36:22 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/20 15:03:02 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Bureaucrat
 
 	public:
 		Bureaucrat();
+		Bureaucrat(Bureaucrat const & src);
 		Bureaucrat(std::string name, int grade);
 		~Bureaucrat();
 
