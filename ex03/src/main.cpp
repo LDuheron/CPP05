@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:51:32 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/26 15:30:31 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:31:52 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,6 @@ int	main(int argc, char **argv)
 		std::cerr << "Error: usage is ./intern <name of form> <target>.\n";
 		return (ERROR);
 	}
-	try
-	{
-		intern_creation(argv[1], argv[2]);
-	}	
-	catch (std::exception)
-	{
-		return (ERROR);
-	}
+	intern_creation(argv[1], argv[2]);
 	return (SUCCESS);
 }
