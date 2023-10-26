@@ -11,11 +11,6 @@
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
-#include <cstring>
-#include <fstream>
-#include <iostream>
-#include <string>
-
 
 bool				ShrubberyCreationForm::_defaultIsSigned(NOT_SIGNED);
 std::string	const 	ShrubberyCreationForm::_defaultName("Shrubbery creation form");
@@ -91,21 +86,18 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		std::ofstream	file(test.append("_shrubbery").c_str());
 		if (!file.is_open() || file.fail())
 			throw(FileFailedException());
-		file << "TREES" << std::endl;
+		file << "\n\
+       ,,,.   ,@@@@@@/@@,  .oo8888o.\n\
+    ,&%%&%&&%,@@@@@/@@@@@@,888888/88o\n\
+   ,%&%&&%&&%,@@@/@@@/@@@8888888/88888'\n\
+   %&&%&%&/%&&%@@@@/ /@@@8888888888888'\n\
+   %&&%/ %&%%&&@@ V /@@' `888 `/8888'\n\
+   `&% ` /%&'     |.|       '8|888'\n\
+       |o|        | |         | |\n\
+       |.|        | |         | | "
+	   << std::endl;
 		file.close();
 	}
 	else
 		throw(GradeTooLowException());
 }
-
-// "
-//        ,,,.   ,@@@@@@/@@,  .oo8888o.
-//     ,&%%&%&&%,@@@@@/@@@@@@,8888\88/8o
-//    ,%&\%&&%&&%,@@@\@@@/@@@88\88888/88'
-//    %&&%&%&/%&&%@@\@@/ /@@@88888\88888'
-//    %&&%/ %&%%&&@@\ V /@@' `88\8 `/88'
-//    `&%\ ` /%&'    |.|        \ '|8'
-//        |o|        | |         | |
-//        |.|        | |         | |
-
-// "

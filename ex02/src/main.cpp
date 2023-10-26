@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:51:32 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/25 16:32:53 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:27:54 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	create_a_president_form(std::string target)
 	Gurvan.signForm(form);
 	Gurvan.executeForm(form);
 
-	std::cout << "\n\n";
+	std::cout << "\n";
 	Meryem.signForm(form);
 	Meryem.executeForm(form);
 	Meryem.signForm(form);
@@ -79,7 +79,7 @@ void	create_a_shrubbery_form(std::string target)
 	Gurvan.signForm(form);
 	Gurvan.executeForm(form);
 
-	std::cout << "\n\n";
+	std::cout << "\n";
 	Meryem.signForm(form);
 	Meryem.executeForm(form);
 	Meryem.signForm(form);
@@ -113,7 +113,7 @@ void	create_a_robotomy_form(std::string target)
 	Gurvan.signForm(form);
 	Gurvan.executeForm(form);
 
-	std::cout << "\n\n";
+	std::cout << "\n";
 	Meryem.signForm(form);
 	Meryem.executeForm(form);
 	Meryem.signForm(form);
@@ -135,6 +135,5 @@ int	main(int argc, char **argv)
 	{
 		return (ERROR);
 	}
-
 	return (SUCCESS);
 }
