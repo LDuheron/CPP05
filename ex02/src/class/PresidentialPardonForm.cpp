@@ -14,8 +14,8 @@
 
 bool				PresidentialPardonForm::_defaultIsSigned(NOT_SIGNED);
 std::string	const 	PresidentialPardonForm::_defaultName("Presidential pardon form");
-unsigned int const	PresidentialPardonForm::_defaultRequiredGradeToBeExecuted(45);
-unsigned int const	PresidentialPardonForm::_defaultRequiredGradeToBeSigned(72);
+unsigned int const	PresidentialPardonForm::_defaultRequiredGradeToBeExecuted(5);
+unsigned int const	PresidentialPardonForm::_defaultRequiredGradeToBeSigned(25);
 
 // Constructor -----------------------------------------------------------------
 

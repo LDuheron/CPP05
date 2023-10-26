@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:51:32 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/26 11:27:54 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:45:06 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 void	create_a_president_form(std::string target)
 {
-	Bureaucrat 				Gurvan;
-	Bureaucrat 				Meryem("Meryem", 1);
+	Bureaucrat 				William;
+	Bureaucrat 				Hugo("Hugo", 1);
 	PresidentialPardonForm	form(target);
 
 	std ::cout << form;
@@ -28,27 +28,27 @@ void	create_a_president_form(std::string target)
 
 	try
 	{
-		form.execute(Gurvan);
+		form.execute(William);
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << "Bureaucrat " << Gurvan.getName() << " couldn't execute " << form.getName() << " because " << e.what();
+		std::cerr << "Bureaucrat " << William.getName() << " couldn't execute " << form.getName() << " because " << e.what();
 	}
 	try
 	{
-		form.beSigned(Gurvan);
+		form.beSigned(William);
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << "Bureaucrat " << Gurvan.getName() << " couldn't sign " << form.getName() << " because " << e.what();
+		std::cerr << "Bureaucrat " << William.getName() << " couldn't sign " << form.getName() << " because " << e.what();
 	}
-	Gurvan.signForm(form);
-	Gurvan.executeForm(form);
+	William.signForm(form);
+	William.executeForm(form);
 
 	std::cout << "\n";
-	Meryem.signForm(form);
-	Meryem.executeForm(form);
-	Meryem.signForm(form);
+	Hugo.signForm(form);
+	Hugo.executeForm(form);
+	Hugo.signForm(form);
 }
 
 void	create_a_shrubbery_form(std::string target)
@@ -87,8 +87,8 @@ void	create_a_shrubbery_form(std::string target)
 
 void	create_a_robotomy_form(std::string target)
 {
-	Bureaucrat 				Gurvan;
-	Bureaucrat 				Meryem("Meryem", 1);
+	Bureaucrat 				Axel;
+	Bureaucrat 				Karim("Karim", 1);
 	RobotomyRequestForm		form(target);
 
 	std ::cout << form;
@@ -96,27 +96,35 @@ void	create_a_robotomy_form(std::string target)
 
 	try
 	{
-		form.execute(Gurvan);
+		form.execute(Axel);
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << "Bureaucrat " << Gurvan.getName() << " couldn't execute " << form.getName() << " because " << e.what();
+		std::cerr << "Bureaucrat " << Axel.getName() << " couldn't execute " << form.getName() << " because " << e.what();
 	}
 	try
 	{
-		form.beSigned(Gurvan);
+		form.beSigned(Axel);
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << "Bureaucrat " << Gurvan.getName() << " couldn't sign " << form.getName() << " because " << e.what();
+		std::cerr << "Bureaucrat " << Axel.getName() << " couldn't sign " << form.getName() << " because " << e.what();
 	}
-	Gurvan.signForm(form);
-	Gurvan.executeForm(form);
+	Axel.signForm(form);
+	Axel.executeForm(form);
 
 	std::cout << "\n";
-	Meryem.signForm(form);
-	Meryem.executeForm(form);
-	Meryem.signForm(form);
+	Karim.signForm(form);
+	Karim.executeForm(form);
+	Karim.signForm(form);
+	Karim.executeForm(form);
+	Karim.executeForm(form);
+	Karim.executeForm(form);
+	Karim.executeForm(form);
+	Karim.executeForm(form);
+	Karim.executeForm(form);
+	Karim.executeForm(form);
+	Karim.executeForm(form);
 }
 int	main(int argc, char **argv)
 {
@@ -127,9 +135,9 @@ int	main(int argc, char **argv)
 	}
 	try
 	{
-		// create_a_shrubbery_form(argv[1]);
+		create_a_shrubbery_form(argv[1]);
 		create_a_robotomy_form(argv[1]);
-		// create_a_president_form(argv[1]);
+		create_a_president_form(argv[1]);
 	}	
 	catch (std::exception)
 	{

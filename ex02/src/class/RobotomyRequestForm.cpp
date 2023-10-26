@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:21:48 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/25 16:31:39 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:46:37 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,10 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	if (executor.getGrade() <= this->_requiredGradeToBeExecuted)
 	{
-		// proceed to robotomy
+		if ((rand() % 2) == 0)
+			std::cout << this->_target << " has been robotomized succesfully.\n";
+		else
+			std::cout << "Robotomy on " << this->_target << " failed\n";
 	}
 	else
 		throw(GradeTooLowException());
