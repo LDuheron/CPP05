@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:48:17 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/26 11:36:12 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:10:12 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ class RobotomyRequestForm : public AForm
 		virtual ~RobotomyRequestForm();
 
 		std::string		getTarget(void) const;
+
+		RobotomyRequestForm &	operator=(RobotomyRequestForm const & rhs);
 		
 		virtual void	beSigned(Bureaucrat const &bureaucrat);
 		virtual void	execute(Bureaucrat const &executor) const;

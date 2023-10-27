@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 12:12:32 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/25 15:17:14 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/27 14:58:07 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,12 @@ void	Bureaucrat::setGrade(int newGrade)
 }
 
 // Overload --------------------------------------------------------------------
+
+Bureaucrat &	Bureaucrat::operator=( Bureaucrat const & rhs )
+{
+	this->_grade = rhs._grade;
+	return *this;
+}
 
 std::ostream & operator<<(std::ostream & lhs, Bureaucrat const & rhs)
 {

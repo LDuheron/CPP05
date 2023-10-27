@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:21:48 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/26 11:46:37 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:11:29 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ std::string	RobotomyRequestForm::getTarget(void) const
 }
 
 // Overload --------------------------------------------------------------------
+
+RobotomyRequestForm &	RobotomyRequestForm::operator=(RobotomyRequestForm const & rhs)
+{
+	this->_isSigned = rhs._isSigned;
+	return *this;
+}
 
 std::ostream & operator<<(std::ostream & lhs, RobotomyRequestForm const & rhs)
 {

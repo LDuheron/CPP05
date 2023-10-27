@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 12:12:32 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/19 14:46:13 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/27 14:57:27 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ unsigned int Bureaucrat::_defaultGrade(150);
 Bureaucrat::Bureaucrat() : _name(_defaultName), _grade(_defaultGrade)
 {
 	std::cout << "Bureaucrat " << this->_name << " default constructor called.\n";
+}
+
+Bureaucrat::Bureaucrat(Bureaucrat const & src) : _name(src._name), _grade(src._grade)
+{
+	std::cout << "Bureaucrat " << this->_name << " copy constructor called.\n";
 }
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(grade) 
@@ -59,6 +64,12 @@ void	Bureaucrat::setGrade(int newGrade)
 }
 
 // Overload --------------------------------------------------------------------
+
+Bureaucrat &	Bureaucrat::operator=( Bureaucrat const & rhs )
+{
+	this->_grade = rhs._grade;
+	return *this;
+}
 
 std::ostream & operator<<(std::ostream & lhs, Bureaucrat const & rhs)
 {

@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:04:37 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/26 15:29:26 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:22:07 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,25 @@ Intern::Intern()
 	// std::cout << "Intern default constructor called.\n";
 }
 
+Intern::Intern(Intern const & src)
+{
+	(void) src;
+	// std::cout << "Intern copy constructor called.\n";
+}
+
 // Destructor ------------------------------------------------------------------
 
 Intern::~Intern()
 {
 	// std::cout << "Intern destructor called.\n";
+}
+
+// Overload --------------------------------------------------------------------
+
+Intern &	Intern::operator=(Intern const & rhs)
+{
+	(void)rhs;
+	return *this;
 }
 
 // Functions -------------------------------------------------------------------

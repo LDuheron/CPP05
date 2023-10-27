@@ -50,6 +50,12 @@ std::string	PresidentialPardonForm::getTarget(void) const
 
 // Overload --------------------------------------------------------------------
 
+PresidentialPardonForm &	PresidentialPardonForm::operator=(PresidentialPardonForm const & rhs)
+{
+	this->_isSigned = rhs._isSigned;
+	return *this;
+}
+
 std::ostream & operator<<(std::ostream & lhs, PresidentialPardonForm const & rhs)
 {
 	lhs << rhs.getName() << " requires grade " << rhs.getRequiredGradeToBeExecuted() << " to be executed, "

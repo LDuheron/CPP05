@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:24 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/19 14:45:14 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:01:46 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,18 @@ class Form
 
 	public:
 		Form();
+		Form(Form const & src);
 		Form(std::string name, unsigned int const requiredGradeToBeExecuted, unsigned int const requiredGradeToBeSigned);
 		~Form();
+
+		Form &	operator=(Form const & rhs);	
 
 		bool const & 				getIsSigned(void) const;
 		std::string const & 		getName(void) const;
 		unsigned int const & 		getRequiredGradeToBeExecuted(void) const;
 		unsigned int const & 		getRequiredGradeToBeSigned(void) const;
 
-		void	beSigned(Bureaucrat bureaucrat);
+		void						beSigned(Bureaucrat bureaucrat);
 
 		class GradeTooLowException : public std::exception 
 		{

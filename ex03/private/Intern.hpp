@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:55:14 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/26 13:12:06 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:19:32 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ class Intern
 {
 	public:
 		Intern();
+		Intern(Intern const & src);
 		~Intern();
+
+		Intern &	operator=(Intern const & rhs);
 
 		AForm	*makeForm(std::string const form_name, std::string const target) const;
 		AForm	*makePresidentialPardon(std::string const target) const;

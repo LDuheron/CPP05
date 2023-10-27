@@ -50,6 +50,12 @@ std::string	ShrubberyCreationForm::getTarget(void) const
 
 // Overload --------------------------------------------------------------------
 
+ShrubberyCreationForm &	ShrubberyCreationForm::operator=(ShrubberyCreationForm const & rhs)
+{
+	this->_isSigned = rhs._isSigned;
+	return *this;
+}
+
 std::ostream & operator<<(std::ostream & lhs, ShrubberyCreationForm const & rhs)
 {
 	lhs << rhs.getName() << " requires grade " << rhs.getRequiredGradeToBeExecuted() << " to be executed, "

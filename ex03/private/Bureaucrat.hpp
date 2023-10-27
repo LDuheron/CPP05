@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 22:12:15 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/26 12:19:51 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/27 14:46:15 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ class Bureaucrat
 		Bureaucrat(Bureaucrat const & src);
 		Bureaucrat(std::string name, int grade);
 		~Bureaucrat();
+
+		Bureaucrat &	operator=(Bureaucrat const & rhs);
 
 		std::string const 		&getName(void) const;
 		unsigned int const		&getGrade(void) const;

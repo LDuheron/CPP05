@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:48:17 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/25 16:23:33 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:10:36 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ class ShrubberyCreationForm : public AForm
 
 		ShrubberyCreationForm(std::string const target);
 		virtual ~ShrubberyCreationForm();
+	
+		ShrubberyCreationForm &	operator=(ShrubberyCreationForm const & rhs);
 
 		std::string		getTarget(void) const;
 		

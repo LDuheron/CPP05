@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:57:33 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/19 14:49:45 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:03:12 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ Form::Form() :
 	_requiredGradeToBeSigned(_defaultRequiredGradeToBeSigned)
 {
 	std::cout << "Form " << this->_name << " default constructor called.\n\n";
+}
+
+Form::Form(Form const & src) : _isSigned(src._isSigned), _name(src._name), _requiredGradeToBeExecuted(src._requiredGradeToBeExecuted), _requiredGradeToBeSigned(src._requiredGradeToBeSigned)
+{
+	std::cout << "Bureaucrat " << this->_name << " copy constructor called.\n";
 }
 
 Form::Form(std::string name, unsigned int gradeToExecute, unsigned int gradeToSign) :
@@ -67,6 +72,12 @@ unsigned int const & Form::getRequiredGradeToBeSigned(void) const
 }
 
 // Overload --------------------------------------------------------------------
+
+Form &	Form::operator=(Form const & rhs)
+{
+	this->_isSigned = rhs._isSigned;
+	return *this;
+}
 
 std::ostream & operator<<(std::ostream & lhs, Form const & rhs)
 {

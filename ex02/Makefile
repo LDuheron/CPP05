@@ -23,8 +23,8 @@ PRV_DIR		= 	private
 #            SOURCE FILES            #
 ######################################
 SRC			=	main.cpp							\
-				class/Bureaucrat.cpp				\
 				class/AForm.cpp						\
+				class/Bureaucrat.cpp				\
 				class/RobotomyRequestForm.cpp		\
 				class/ShrubberyCreationForm.cpp		\
 				class/PresidentialPardonForm.cpp	\

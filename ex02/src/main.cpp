@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:51:32 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/26 11:45:06 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:54:36 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ int	main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cerr << "Error: usage is ./bureaucrat <target>.\n";
+		std::cerr << "Error: usage is ./Form <target>.\n";
 		return (ERROR);
 	}
 	try

@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:48:17 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/26 11:36:12 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:10:01 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ class RobotomyRequestForm : public AForm
 
 		RobotomyRequestForm(std::string const target);
 		virtual ~RobotomyRequestForm();
+
+		RobotomyRequestForm &	operator=(RobotomyRequestForm const & rhs);
 
 		std::string		getTarget(void) const;
 		

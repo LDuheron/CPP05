@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:24 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/25 14:44:43 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:09:10 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ class AForm
 	public:
 
 		virtual ~AForm();
+
+		AForm &	operator=(AForm const & rhs);
 
 		bool const & 				getIsSigned(void) const;
 		std::string const & 		getName(void) const;

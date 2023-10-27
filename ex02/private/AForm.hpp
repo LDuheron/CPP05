@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:24 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/25 14:44:43 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:05:57 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ class AForm
 		std::string	const 			_name;
 		unsigned int const			_requiredGradeToBeExecuted;
 		unsigned int const			_requiredGradeToBeSigned;
+	
+	
 
 		class GradeTooLowException : public std::exception 
 		{
@@ -67,7 +69,7 @@ class AForm
 		AForm(std::string name, unsigned int const requiredGradeToBeExecuted, unsigned int const requiredGradeToBeSigned);
 
 	public:
-
+		AForm &	operator=(AForm const & rhs);
 		virtual ~AForm();
 
 		bool const & 				getIsSigned(void) const;

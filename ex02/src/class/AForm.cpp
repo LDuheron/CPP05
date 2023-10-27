@@ -6,7 +6,7 @@
 /*   By: lduheron <lduheron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:57:33 by lduheron          #+#    #+#             */
-/*   Updated: 2023/10/25 15:17:35 by lduheron         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:04:48 by lduheron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,12 @@ unsigned int const & AForm::getRequiredGradeToBeSigned(void) const
 }
 
 // Overload --------------------------------------------------------------------
+
+AForm &	AForm::operator=(AForm const & rhs)
+{
+	this->_isSigned = rhs._isSigned;
+	return *this;
+}
 
 std::ostream & operator<<(std::ostream & lhs, AForm const & rhs)
 {
